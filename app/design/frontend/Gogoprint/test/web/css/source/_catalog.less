@@ -1,0 +1,372 @@
+.widget-product-grid {
+	list-style-type:none;
+	padding: 0px;
+}
+.actions-secondary,
+.actions-primary {
+	display: inline-block;
+}
+
+.actions-secondary {
+	position: relative;
+    right: -10px;
+}
+.trigger-cart {
+	color: @orangeColor;
+}
+.price-box {
+	.reg-font;
+	font-size: 12px;	
+	.old-price {
+		.packaging {
+			display: none;
+		}
+	}
+}
+.product-item-link {
+	margin-top: 0px;
+	color: @greyColor;
+	margin-bottom: 0px;
+	// white-space: nowrap; 
+ //    overflow: hidden;
+ //    text-overflow: ellipsis;
+ 
+}
+.product-item {
+	margin-top: 0px;
+	padding-top: 10px;
+	&:hover {
+    			-webkit-box-shadow: 0 3px 4px 3px #dcdcdc;
+		            box-shadow: 0 3px 4px 3px #dcdcdc;
+			   
+			    -webkit-border-radius: 0px;
+			            border-radius: 0px;
+    		}
+}
+.checkout-index-index .product-item:hover {
+	box-shadow: none!important;
+	-webkit-box-shadow: none!important;
+}
+
+#mini-cart {
+	.product-item {
+		-webkit-box-shadow: none;
+		        box-shadow: none;
+	}
+}
+
+.product-item-info {
+	position: relative;
+}
+.product-item-details {
+	// height: 140px;
+	.gramasi-wrapper {
+		min-height: 30px;
+	}
+	.gramasi,
+	.packaging-detail {
+		.sm-font;
+		display: inline-block;
+		// min-height: 30px;
+		color: #a9a9a9;
+	}	
+
+}
+.product-item-inner {
+	min-height: 40px;
+	margin-top: 0px;
+}
+.products-grid {
+	.product-item-details {
+		.sale-badge {
+			display: none;
+		}
+		@media (min-width: @screen-sm-min) {
+			min-height: 160px;
+			.product.name {
+				a {
+					height: 40px;
+					overflow: hidden;
+				}
+			}
+		}
+	}
+}
+
+
+.notif-wrapper {
+	position: absolute;
+    top: 0px;
+    background: rgba(255, 255, 255, 0.9);
+    height: 100%;
+    z-index: 9999;
+    left: 0px;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    span {
+    	.titleFontStyle;
+    }
+}
+
+.sub-list {
+	ul {
+		list-style-type: none;
+		padding-left: 0px;
+		margin-bottom: 0px;
+		li {
+			margin-bottom: 15px;
+			a {
+				display: block;
+			    padding: 5px 10px;
+			    background: #fff;
+			    border-radius: 20px;
+			    border: @a-border;
+			    overflow: hidden;
+			    &:hover {
+			    	text-decoration: none;
+			    	-webkit-box-shadow: 0px 5px 2px 0px #e8e8e8;
+	    	        box-shadow: 0px 5px 2px 0px #e8e8e8;
+			    }
+			    .subcat-name {
+			    	color: @mainColor;
+			    }
+			}
+		}
+	}
+}
+
+.category-title {
+	.md-font;
+	display: inline-block;
+	margin: 0px;
+	.titleFontStyle;
+}
+.toolbar-products {
+	display: inline-block;
+	float: right;
+}
+
+.category-image {
+	display: none;
+}
+#sorter {
+	max-width: 100px;
+	.boldFontStyle;
+	border: none;		
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+	&:focus {
+		border: none;		
+		-webkit-box-shadow: none;
+		        box-shadow: none;
+	}
+	option {
+		text-align: right;
+	}
+}
+
+
+#view-more span {
+	display: block;
+    padding: 20px 10px;
+    background: #fff;
+    border-radius: 20px;
+    // border: @a-border;
+    overflow: hidden;
+    cursor:pointer;
+    text-align: center;
+    .boldFontStyle;
+    &:hover {
+    	text-decoration: underline;
+    }
+}
+.products-related, #quickview-related {
+	.product-item-actions, .block-actions {
+		display: none;
+	}
+}
+#quickview-related {
+	margin-top: 15px;
+	.block-title {
+		span {
+			.boldFontStyle;
+		}
+	}
+ }
+
+.catalog-category-view  {
+	.old-price,
+	.special-price
+	 {
+		// display: block;
+		// float: left;
+		font-size: 12px;
+	}
+	.old-price {
+		.packaging {
+			display: none;
+		}
+	}
+	.special-price {
+		padding-left: 0px;
+	}
+	.packaging {
+		color: #dad6d6;
+	}
+}
+.catalog-product-view {
+	.price-box {
+		.old-price,
+		.special-price
+		 {
+			// display: block;
+			// float: left;
+			// font-size: 12px;
+		}
+		.old-price {
+			.packaging {
+				display: none;
+			}
+		}
+		.special-price {
+			// padding-left: 0px;
+		}
+		.packaging {
+			color: #dad6d6;
+			.boldFontStyle;
+		}
+	}
+}
+.script-quick-view-btn-container {
+	position: absolute;
+    top: 0;
+    height: 60%;
+    width: 100%;
+    z-index: 9999;
+    a {
+    	width: 100%;
+	    display: block;
+	    text-align: center;
+	    text-indent: -9999px;
+	    height: 70%;
+    }
+}
+
+.product.alert.price {
+	color: @greyFont;
+	padding-top:0px;
+	padding-bottom:0px;
+	a {
+		color: @greyFont;
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+}
+
+
+
+// Auction Section
+.product-view-wrapper,
+.product-item-info {
+	#auctionbidform {
+	    box-shadow: 0px 1px 4px #b9b3b3;
+	    border: @a-border;
+	    margin-top: 15px;
+	    display: block;
+	    float: left;
+	    width: 100%;
+	    margin-bottom: 15px;
+		.list-group-item {
+			border: none;
+		}
+		.timeleftbox {
+			background: none;
+			margin-bottom: 0px;
+			.hour-icon {
+				.lg-font;
+				display: inline-block;
+				vertical-align: top;
+				margin-right: 15px;
+			}
+			p {
+				display: inline-block;
+				.countdown_amount,
+				.countdown_section {
+					display: block;
+					float: left;
+					margin-right: 5px;
+					width: auto;
+				}
+			}
+		}
+		.bid_title {
+			.h5 {
+				margin-top: 0px;
+				margin-bottom: 0px;
+				font-size: 14px;
+			}
+		}
+		#bidding_amount {
+			width: 65%;
+			margin-right: 15px;
+		}
+		#target {
+			padding-top: 0px;
+			padding-bottom: 0px;
+		}
+		.auc-bid-note {
+			float: left;
+		    display: block;
+		    margin-top: 8px;
+		    clear: left;
+
+		}
+	}
+}
+.product-item-info {
+	.ending-title {
+		margin-top: 10px;
+		margin-bottom: 0px;
+		color: @greenColor!important;
+	}
+	#auctionbidform {
+		-webkit-box-shadow: none;
+		        box-shadow: none;
+	    .list-group-item {
+			padding-top: 0px!important;
+			padding-bottom: 0px!important;
+		}
+	}
+	
+}
+.lofauction-bid-all {
+	.script-quick-view-btn-container {
+		display: none!important;
+	}
+	.product-item-info #auctionbidform .timeleftbox p {
+		margin-bottom: 0px;
+	}
+	.product-item-photo {
+		display: block;
+	}
+	.product-item-inner {
+	   display: block;
+	    float: left;
+	    width: 100%;
+	}
+	#auctionbidform {
+		margin-top: 0px;
+	}
+	input[name="bidding_amount"] {
+		width: 100%!important;
+		margin-bottom: 10px;
+    	margin-top: 10px;
+	}
+}
+.category-auction {
+	.product.alert.price {
+		// display: none;
+	}
+}
