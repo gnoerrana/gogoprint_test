@@ -14,3 +14,5 @@ create database and import from sql file at "Database" Folder
   - sudo chmod -R 777 var generated pub/static
   
  
+Custom Module :
+Gogoprint_AddToCart -> Create product matrix for quantity and date price calculation.
