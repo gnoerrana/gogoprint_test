@@ -12,11 +12,11 @@
 <?php $buttonTitle = __('Add to Cart'); ?>
 <?php if ($_product->isSaleable()): ?>
 
+<h3 class="option-title"><?php /* @escapeNotVerified */ echo __('Step 2: Choose the Quantities and Delivery Date:') ?></h3>
 <div class="box-tocart">
     <div class="fieldset">
         <?php if ($block->shouldRenderQuantity()): ?>
         <div class="field qty" >
-            <label class="label" for="qty"><span><?php /* @escapeNotVerified */ echo __('Qty') ?></span></label>
             <div class="control" style="visibility: hidden;">
                        <?php 
                         $getOptionValue = $this->getQtyIncrements();
@@ -39,13 +39,23 @@
             </div>
 
             
-    <table>
+    <table id="configure-optionPrice">
         <tr>
             
-            <th>&nbsp;</th>
+            <th class="info">
+                <span class="qty-title">
+                    <?php /* @escapeNotVerified */ echo __('Qty') ?>
+                </span>
+                <span class="date-title">
+                    <?php /* @escapeNotVerified */ echo __('Delivery') ?>
+                </span>
+
+            </th>
             <?php echo $this->getRowDate();?>
         </tr>
-        <?php echo $this->getColQty();?>
+       
+            <?php echo $this->getColQty();?>
+       
     </table>
      
         </div>

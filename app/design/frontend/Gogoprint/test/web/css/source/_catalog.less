@@ -1,0 +1,110 @@
+.breadcrumbs .items {
+	text-align: center;
+}
+#configure-optionPrice {
+	label.radio {
+		display: none;
+	}
+	td.qty,
+	th,
+	td {
+		border-right: thin solid @greyColor;
+		border-left: thin solid @greyColor;
+		text-align: center;
+		padding: 24px 10px;
+		font-weight: bold;
+	}
+	th {
+		border-bottom: thin solid @greyColor;
+		&:first-child {
+			border-bottom:none;
+			border-right:none;
+		}
+		&:nth-child(2) {
+			border-left:none;
+		}
+	}
+	td {
+		width: 45px;
+	}
+}
+
+.page-layout-1column.catalog-product-view {
+	.page-title {
+		text-align: center;
+	}
+	.product.media,
+	.product-info-main,
+	.product.info.detailed {
+		@media (min-width: 768px), print {
+			width: 80%;
+			margin:0 auto;
+			float: none;
+		}
+		.fotorama__stage, .fotorama__nav {
+			margin: 0 auto;
+		}
+		.fotorama__nav-wrap--vertical.fotorama__nav-wrap {
+			display: none!important;
+		}
+	}
+	.product.info.detailed { 
+		margin-top:55px;
+	}
+	.product-options-wrapper {
+		max-width: 50%;
+		margin: 0 auto 40px auto;
+	}
+	.product-add-form .product-options-wrapper .field .control {
+		@media (min-width: 768px), print {
+			width: 100%;
+		}
+	}
+	.option-title {
+		text-align: center;
+		margin-bottom: 45px;
+    	margin-top: 45px;
+	}
+	.product-reviews-summary.empty {
+		display: none;
+	}
+}
+
+.box-tocart {
+	.actions {
+		.tocart {
+			margin: 50px auto;
+			display: block;
+			margin-right: auto!important;
+		}
+	}
+}
+th.info {
+	position: relative;
+	span {
+		position: absolute;
+		&.date-title {
+			top: 15px;
+			right: 10px;
+			-ms-transform: rotate(32deg); /* IE 9 */
+			  -webkit-transform: rotate(32deg); /* Safari 3-8 */
+			  transform: rotate(32deg);
+			  &:after {
+			  	    width: 210%;
+				    content: " ";
+				    border-bottom: thin solid @greyColor;
+				    display: block;
+				    position: absolute;
+				    top: 26px;
+				    right: -20px;
+			  }
+		}
+		&.qty-title {
+			bottom: 14px;
+			left: 30px;
+			-ms-transform: rotate(32deg); /* IE 9 */
+			  -webkit-transform: rotate(32deg); /* Safari 3-8 */
+			  transform: rotate(32deg);
+		}
+	}
+}
