@@ -149,6 +149,33 @@ class View extends \Magento\Catalog\Block\Product\View
             }
     }
 
+     /**
+     * Get Markup By Date for each child
+     * 
+     * @return int
+     */
+    public function getMarkup(){
+        $product = $this->getProduct();
+        $productTypeInstance = $product->getTypeInstance();
+        $usedProducts = $productTypeInstance->getUsedProducts($product);
+        $children = array();
+        foreach ($usedProducts  as $child) { 
+                $children[] = array(
+                    'tier' => $child->getTierPrice()
+                );
+           }
+
+        $getDateMarkup = $productionDay = $this->_productAttributeRepository->get('production_day')->getOptions();       
+        $dayMarkup = array();
+        foreach ($getDateMarkup as $discDay) { 
+            $dayMarkup[] = array(
+               'day' => $discDay['label'] //1,2,3,4
+            );
+        }
+        return $dayMarkup;
+    }
+
+
     /**
      * Get product price (assumption same price for all simple product)
      * 
@@ -158,10 +185,12 @@ class View extends \Magento\Catalog\Block\Product\View
        $product = $this->getProduct();
        $productTypeInstance = $product->getTypeInstance();
        $usedProducts = $productTypeInstance->getUsedProducts($product);
+       
+
+
+
        $children = array();
        foreach ($usedProducts  as $child) { 
-            
-            
             $children[] = array(
                 'id' => $child->getId(),
                 'sku' => $child->getSku(),
@@ -171,6 +200,8 @@ class View extends \Magento\Catalog\Block\Product\View
        return $children;
     }
 
+
+   
 
 
     /**
@@ -182,21 +213,40 @@ class View extends \Magento\Catalog\Block\Product\View
         $getOptionValue = $this->getQtyIncrements();
         $optionQty = array_shift($getOptionValue);
         $price = $this->getProdukPrice();
+        $dateData = $this->getDeliveryTime();
+        $datesData = array_shift($dateData);
 
-        // Temporary Show Price
+        
         $product = $this->getProduct();
-        $productPrice = $product->getPriceInfo()->getPrice('regular_price')->getAmount()->getValue();
-        $formatedPrice = $this->priceCurrency->format($productPrice,true,0);
-        // foreach($price as $priceTier){
-        //     echo $priceTier['id'];
-        // }
             foreach($getOptionValue as $quantity){
-                echo '<tr>';
-                echo '<td>'. $quantity.'</td>';
-                echo '<td><label class="radio"><input type="radio" name="qty" value="'.$productPrice.'">'.$formatedPrice.'</label></td>';
-                echo '<td><label class="radio"><input type="radio" name="qty" value="'.$productPrice.'">'.$formatedPrice.'</label></td>';
-                echo '<td><label class="radio"><input type="radio" name="qty" value="'.$productPrice.'">'.$formatedPrice.'</label></td>';
-                echo '<td><label class="radio"><input type="radio" name="qty" value="'.$productPrice.'">'.$formatedPrice.'</label></td>';
+                echo '<td class="qty">'. $quantity.'</td>';
+
+                foreach($dateData as $date){
+                    echo '<td>';
+                    foreach($price as $childData){
+                        $eachPrice = $childData['tier'];
+                        foreach($eachPrice as $priceTier){
+                            if($priceTier['price_qty'] == $quantity){
+                                if($date['day'] == '1') {
+                                    $priceSingle = $priceTier['price'] + ($priceTier['price']*0.5);
+                                } elseif ($date['day'] == '2') {
+                                    $priceSingle = $priceTier['price'] + ($priceTier['price']*0.3);
+                                } elseif ($date['day'] == '3') {
+                                    $priceSingle = $priceTier['price'] + ($priceTier['price']*0.15);
+                                } else {
+                                    $priceSingle = $priceTier['price'];
+                                }
+                            $formatedPriceSignle = $this->priceCurrency->format($priceSingle*$quantity,true,0);
+
+
+
+                                $dateProduction = $this->getMarkup();
+                                echo '<label class="radio" data-priduct-id="'.$priceTier['product_id'].'"><input type="radio" name="qty" value="'.$quantity.'" >'.$formatedPriceSignle.'</label>';
+                            }
+                        }
+                    }
+                    echo '</td>';
+                }
                 echo '</tr>';
             }
     }
